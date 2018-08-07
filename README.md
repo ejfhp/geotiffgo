@@ -1,2 +1,2 @@
-# cog-ex
-To access Cloud Optimized Geotiff in Go
+# Geotiff
+The idea is to buld a library to read geo data from geotiff

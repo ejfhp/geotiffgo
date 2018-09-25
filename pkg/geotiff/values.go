@@ -268,6 +268,38 @@ func GetValues(slice *DataSlice, fieldType uint16, count uint, offset uint) ([]i
 		values = make([]interface{}, count)
 		readMethodName = "ReadUint8"
 		break
+	case FieldTypes["SBYTE"]:
+		values = make([]interface{}, count)
+		readMethodName = "ReadInt8"
+		break
+	case FieldTypes["SHORT"]:
+		values = make([]interface{}, count)
+		readMethodName = "ReadUint16"
+		break
+	case FieldTypes["SSHORT"]:
+		values = make([]interface{}, count)
+		readMethodName = "ReadInt16"
+		break
+	case FieldTypes["LONG"]:
+		values = make([]interface{}, count)
+		readMethodName = "ReadUint32"
+		break
+	case FieldTypes["SLONG"]:
+		values = make([]interface{}, count)
+		readMethodName = "ReadInt32"
+		break
+	case FieldTypes["LONG8"], FieldTypes["IFD8"]:
+		values = make([]interface{}, count)
+		readMethodName = "ReadUint64"
+		break
+	case FieldTypes["SLONG8"]:
+		values = make([]interface{}, count)
+		readMethodName = "ReadInt64"
+		break
+	case FieldTypes["RATIONAL"]:
+		values = make([]interface{}, count)
+		readMethodName = "ReadUint32"
+		break
 	default:
 		values = make([]interface{}, count)
 		readMethodName = "unknown"

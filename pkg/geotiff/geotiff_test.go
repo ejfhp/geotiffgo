@@ -2,13 +2,12 @@ package geotiff
 
 import (
 	"fmt"
-	"os"
+	"path/filepath"
 	"testing"
 )
 
 func TestFromFile(t *testing.T) {
-	dir, err := os.Getwd()
-	testTiffPath := dir + "/../../resources/very_small.tif"
+	testTiffPath := filepath.Join("testdata", "very_small.tif")
 	gt, err := FromFile(testTiffPath)
 	b := make([]byte, 1, 1)
 	n, err := gt.source.Read(b)
@@ -31,8 +30,7 @@ func TestFromFile(t *testing.T) {
 }
 
 func TestGetSlice(t *testing.T) {
-	dir, err := os.Getwd()
-	testTiffPath := dir + "/../../resources/very_small.tif"
+	testTiffPath := filepath.Join("testdata", "very_small.tif")
 	gt, err := FromFile(testTiffPath)
 	dataSlice, err := gt.GetSlice(10, 10)
 	if err != nil {
